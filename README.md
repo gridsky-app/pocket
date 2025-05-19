@@ -1,7 +1,7 @@
 <p align="center">
   <img width="160" height="160" src="https://avatars.githubusercontent.com/u/189930701?s=160&v=4" />
 </p>
-<h1 align="center">Gridsky Social</h1>
+<h1 align="center">Gridsky Pocket</h1>
 <p align="center">
 Gridsky isn’t just another client — it’s a fresh, customizable, and visually immersive way to experience the social web on the ATmosphere. Inspired by the aesthetics and usability of popular platforms, Gridsky brings a refined, user-friendly interface to Bluesky enriched by vibrant colors and other goodies to make you shine.
 </p>
@@ -16,25 +16,23 @@ Gridsky isn’t just another client — it’s a fresh, customizable, and visual
 <a href="https://gridsky.social">
   <img
     src="https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:jyrbp7bijccauz4eo5iuwbz5/bafkreihbziugsu2u7her4d6mw3tv5b5qo3st2wpjhzh6gd6hndiycnyvay@jpeg"
-    alt="Gridsky, like Instagram on Bluesky. Supercharged"
+    alt="Gridsky Pocket, the compact client"
   />
 </a>
 
 <br />
 <br />
 
-**gridsky-app/client** is the main repository of Gridsky, currently being reworked and improved.
+**gridsky-app/pocket** is a lightweight version of the Gridsky client, kickstarting our open source reboot.
 
-The code is shared to support collaboration and transparency as the project evolves. While it’s not open source in the traditional sense, the license allows for contributions and involvement — just not wholesale cloning or rebranding. The more the community engages, the more open it may become over time.
-
-[**Demo**](https://gridsky.app) · [**Lifetime Perks**](https://patreon.com/join/gridsky)
+[**Demo**](https://pocket.gridsky.app) · [**Lifetime Perks**](https://patreon.com/join/gridsky)
 
 ## Contributing
 
 ```bash
-# fork these two repository
+# fork these two repositories
 # https://github.com/gridsky-app/kit (name it "gridsky-playground")
-# https://github.com/gridsky-app/pocket
+# https://github.com/gridsky-app/pocket (leave it "pocket")
 
 # clone your gridsky kit fork 
 git clone git@github.com:<username>/gridsky-playground.git
@@ -43,7 +41,7 @@ git clone git@github.com:<username>/gridsky-playground.git
 cd gridsky-playground
 
 # clone your gridsky pocket fork into /apps/pocket
-git clone git@github.com:<username>/gridsky-playground.git /apps/pocket
+git clone git@github.com:<username>/pocket.git /apps/pocket
 
 # install dependencies
 pnpm install
