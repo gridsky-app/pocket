@@ -1,0 +1,16 @@
+{
+  "name": "@gridsky/pocket",
+  "version": "0.0.1",
+  "nx": {
+    "name": "pocket"
+  },
+  "author": {
+    "name": "Gridsky Labs",
+    "url": "https://github.com/gridsky-app"
+  },
+  "dependencies": {
+    "nuxt": "^3.10.0",
+    "@gridsky/core": "0.0.1",
+    "@gridsky/ui": "0.0.1"
+  }
+}
