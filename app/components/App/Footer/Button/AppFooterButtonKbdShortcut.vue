@@ -28,8 +28,9 @@ watch(dialog, (value) => {
         <v-card color="background" :rounded="appPreferencesStore.layoutRounded"r>
           <v-list class="bg-transparent">
             <v-list-item class="text-overline">Keyboard shortcuts</v-list-item>
-            <v-list-item><kbd>B</kbd> – Toggle background</v-list-item>
-            <v-list-item><kbd>G</kbd> – Toggle guides</v-list-item>
+            <v-list-item><kbd>F</kbd> – Toggle media fullscreen</v-list-item>
+            <v-list-item><kbd>B</kbd> – Toggle home background</v-list-item>
+            <v-list-item><kbd>G</kbd> – Toggle app guides</v-list-item>
             <v-list-item><kbd>R</kbd> – Change border radius</v-list-item>
           </v-list>
           <v-card-actions>

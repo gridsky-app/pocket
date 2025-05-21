@@ -36,6 +36,16 @@ export default defineNuxtPlugin({
         appPreferencesStore.toggleHomePageBackground()
       })
 
+      onKeyStroke(['f', 'F'], (e) => {
+        if (document.activeElement !== document.body) {
+          return false
+        }
+
+        e.preventDefault()
+
+        appPreferencesStore.togglePageFullscreen()
+      })
+
     })
   }
 })

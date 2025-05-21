@@ -25,6 +25,12 @@ export const useAppPreferencesStore = defineStore("app/preferences", () => {
     homePageBackground.value = !homePageBackground.value
   }
 
+  const pageFullscreen = ref<boolean>(false)
+
+  function togglePageFullscreen() {
+    pageFullscreen.value = !pageFullscreen.value
+  }
+
   return {
     layoutRounded,
     changeLayoutRounded,
@@ -32,6 +38,8 @@ export const useAppPreferencesStore = defineStore("app/preferences", () => {
     toggleHelperGuides,
     homePageBackground,
     toggleHomePageBackground,
+    pageFullscreen,
+    togglePageFullscreen,
   }
 }, {
   persist: {storage: window.localStorage}

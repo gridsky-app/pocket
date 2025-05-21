@@ -36,15 +36,6 @@ const appPreferencesStore = useAppPreferencesStore()
   transform: translate(-50%, -50%);
   z-index: 1;
 
-  &__inner-card {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 72px;
-    aspect-ratio: 1;
-    //overflow: initial;
-  }
-
   .v-card {
     overflow: hidden;
     border-radius: 72px;
