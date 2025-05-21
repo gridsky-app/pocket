@@ -1,15 +1,26 @@
 <script setup lang="ts">
-import {useAppPreferencesStore} from "./stores/storeAppPreferences";
+import {useMouseActivity} from "./composables/useMouseActivity";
 
 const appPreferencesStore = useAppPreferencesStore()
+
+useMouseActivity()
 </script>
 
 <template>
   <v-app>
 
-    <AppToolGuides :enabled="appPreferencesStore.helperGuides" />
+    <AppToolGuides
+      :enabled="appPreferencesStore.helperGuides"
+    />
 
-    <NuxtLayout />
+    <AppPageBackground
+      v-if="$route.name === 'index'"
+      :enabled="appPreferencesStore.homePageBackground"
+    />
+
+    <NuxtLayout/>
+
+    <AppFooterButtons />
 
   </v-app>
 </template>

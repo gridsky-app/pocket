@@ -1,24 +1,59 @@
 <script setup lang="ts">
+import {useMagicKeys} from '@vueuse/core'
+import {ref} from "vue"
+import {useAppHomeStore} from "../stores/storeAppHome";
+
+const appHomeStore = useAppHomeStore()
+
+const drawer = ref(false)
+
+const {left, right} = useMagicKeys()
+
+watch(left, (pressed) => {
+  if (pressed) {
+    drawer.value = !drawer.value
+  }
+})
+
+watch(right, (pressed) => {
+  if (pressed) {
+    drawer.value = false
+  }
+})
+
+watch(drawer, (value) => {
+  appHomeStore.setContentHidden(value)
+})
 </script>
 
 <template>
-  <PocketLayout>
+  <Pocket>
+
+    <NavigationDrawer
+      v-model="drawer"
+    >
+
+    </NavigationDrawer>
 
     <div class="gsky-pocket-index">
 
-      <div>
-        <LogoPocket/>
-      </div>
+      <div class="gsky-pocket-index__content" v-if="!appHomeStore.hideContent">
 
-      <div class="text-center">
-        <HomeHero class="mt-4"/>
-      </div>
+        <div>
+          <LogoPocket/>
+        </div>
 
-      <AppPocketFooter class="py-2" />
+        <div class="text-center">
+          <HomeHero @click="drawer = true"/>
+        </div>
+
+        <AppFooterCopyright class="py-2"/>
+
+      </div>
 
     </div>
 
-  </PocketLayout>
+  </Pocket>
 </template>
 
 <style scoped lang="scss">
@@ -53,16 +88,21 @@
     z-index: 1;
   }
 
-  div {
-    position: relative;
-    z-index: 2;
+  &__content {
+    height: 100%;
 
-    &:nth-child(1) {
-      height: 50%;
-    }
+    div {
+      position: relative;
+      height: 100%;
+      z-index: 2;
 
-    &:nth-child(2) {
-      height: 50%;
+      &:nth-child(1) {
+        height: 50%;
+      }
+
+      &:nth-child(2) {
+        height: 40%;
+      }
     }
   }
 }

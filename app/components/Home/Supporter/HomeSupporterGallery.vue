@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed } from 'vue';
-
 const allProfiles = ref<any[]>([]);
 const visibleProfiles = ref<any[]>([]);
 

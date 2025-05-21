@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import {useAppPageStore} from "../../stores/storeAppPage";
-import {useAppPreferencesStore} from "../../stores/storeAppPreferences";
-
 const appPageStore = useAppPageStore()
 const appPreferencesStore = useAppPreferencesStore()
 </script>
@@ -16,13 +13,15 @@ const appPreferencesStore = useAppPreferencesStore()
       class="gsky-pocket__card"
       color="black"
     >
-      <slot/>
+
+      <slot />
+
     </v-card>
 
     <v-fade-transition>
       <AppPageLoader
-          v-if="$route.meta.showLoader && !appPageStore.pageLoaded"
-          :message="appPageStore.pageLoadingMessage"
+        v-if="$route.meta.showLoader && !appPageStore.pageLoaded"
+        :message="appPageStore.pageLoadingMessage"
       />
     </v-fade-transition>
 
@@ -31,7 +30,23 @@ const appPreferencesStore = useAppPreferencesStore()
 
 <style scoped lang="scss">
 .gsky-pocket {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  &__inner-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 72px;
+    aspect-ratio: 1;
+    //overflow: initial;
+  }
+
   .v-card {
+    overflow: hidden;
     border-radius: 72px;
     transition: border-radius 0.2s;
     box-shadow: 0 0 0 1px rgba(var(--v-theme-on-background), 0.2), 0 8px 32px 0 rgba(0, 0, 0, 0.08);
@@ -41,6 +56,17 @@ const appPreferencesStore = useAppPreferencesStore()
       box-shadow: none;
       border-radius: 0 !important;
     }
+  }
+
+  :deep(.v-navigation-drawer) {
+    background: rgba(var(--v-theme-on-background), 0.04) !important;
+    backdrop-filter: blur(64px);
+  }
+
+  :deep(.v-navigation-drawer__scrim) {
+    background: transparent !important;
+    opacity: 1;
+    backdrop-filter: blur(64px);
   }
 }
 </style>
