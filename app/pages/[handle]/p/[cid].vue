@@ -4,8 +4,8 @@ import {useRoute, useSeoMeta} from "nuxt/app";
 import {ThreadModel} from "@gridsky/core/runtime/models/ThreadModel"
 import {useProfileStore} from "@gridsky/core/runtime/stores/storeProfile"
 import {makeHandleShort} from "@gridsky/core/runtime/utils/utilProfile"
-import {formatLocaleTimeAgo} from "@gridsky/core/runtime/utils/utilTimeAgo"
 import {useAppPageStore} from "../../../stores/storeAppPage";
+import {usePocketThreadPostNavigator} from "../../../composables/usePocketThreadPostNavigator";
 
 const route = useRoute()
 
@@ -16,6 +16,13 @@ const appPageStore = useAppPageStore()
 const thread = new ThreadModel(
   `at://${profileStore.did}/app.bsky.feed.post/${route.params.cid}`
 )
+
+function onAlbumSwiperReady(threadSwiper) {
+  usePocketThreadPostNavigator(
+    profileStore.profile,
+    threadSwiper
+  )
+}
 
 onMounted(async () => {
   appPageStore.setLoadingMessage('loading profile...')
@@ -37,22 +44,22 @@ definePageMeta({
 </script>
 
 <template>
-  <PocketLayoutProfile>
+  <Pocket>
 
-    <template #header>
-      <ProfileCardItem
-        v-if="appPageStore.pageLoaded"
-        :profile="profileStore.profile"
-        :time="formatLocaleTimeAgo(thread.post.record.createdAt)"
-        show-time
-      />
-    </template>
-
-    <ThreadLayoutPocket
+    <PocketThread
+      :profile="profileStore.profile"
       :thread="thread"
-    />
+    >
 
-  </PocketLayoutProfile>
+      <ThreadLayoutPocket
+        v-if="appPageStore.pageLoaded"
+        :thread="thread"
+        @albumSwiperReady="onAlbumSwiperReady"
+      />
+
+    </PocketThread>
+
+  </Pocket>
 </template>
 
 <style scoped lang="scss">

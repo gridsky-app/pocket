@@ -1,4 +1,16 @@
-.v-application {
-  background: black !important;
-  user-select: none;
+body {
+  .v-application {
+    background: black;
+    user-select: none;
+  }
+
+  .v-overlay__scrim {
+    background: #000000aa;
+    opacity: 1;
+    backdrop-filter: blur(96px);
+  }
+
+  .text-overline {
+    opacity: 0.5;
+  }
 }

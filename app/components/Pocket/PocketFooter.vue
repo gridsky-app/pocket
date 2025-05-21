@@ -1,6 +1,8 @@
 <template>
   <footer class="gsky-footer">
-    &copy; `25. GRIDSKY.APP
+    <slot>
+      &copy; `25. GRIDSKY.APP
+    </slot>
   </footer>
 </template>
 

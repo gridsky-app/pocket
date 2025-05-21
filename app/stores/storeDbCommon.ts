@@ -21,6 +21,8 @@ export const useDbCommonStore = defineStore('storage:common', () => {
             upgrade(db) {
                 db.createObjectStore('Profile')
                 db.createObjectStore('ProfileFeed')
+                db.createObjectStore('ProfilePosts')
+                db.createObjectStore('PostsKeyVal')
             },
         })
 

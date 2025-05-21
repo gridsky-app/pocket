@@ -31,9 +31,7 @@ watch(drawer, (value) => {
 
     <NavigationDrawer
       v-model="drawer"
-    >
-
-    </NavigationDrawer>
+    />
 
     <div class="gsky-pocket-index">
 
@@ -47,7 +45,7 @@ watch(drawer, (value) => {
           <HomeHero @click="drawer = true"/>
         </div>
 
-        <AppFooterCopyright class="py-2"/>
+        <PocketFooter class="py-2"/>
 
       </div>
 
